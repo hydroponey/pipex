@@ -6,7 +6,7 @@
 #    By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/21 17:42:52 by asimoes           #+#    #+#              #
-#    Updated: 2021/12/26 16:40:13 by asimoes          ###   ########.fr        #
+#    Updated: 2022/01/01 16:54:08 by asimoes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,15 +22,16 @@ CLIBS=-L./libft -lft
 %.o: %.c includes/pipex.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
+all: $(NAME)
+
 $(LFT):
 	make -C ./libft
 
 $(NAME): $(OBJS) $(LFT)
 	$(CC) $(CFLAGS) $^ -o $@ $(CLIBS)
 
-all: $(NAME)
-
 clean:
+		rm -f $(LFT)
 		rm -f $(OBJS)
 
 fclean:	clean
